@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#scraper.rb
+
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
+require_relative '../app/models/scraper.rb'
+
+scrape=Scraper.new
+scrape.scrape_chewy
+
+
