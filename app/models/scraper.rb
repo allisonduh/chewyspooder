@@ -76,8 +76,11 @@ class Scraper
 		
 	end
 
+	def self.refresh_products
+   		scrape_product_pages(product_urls,brand_names)
+ 	end
+
 end
-scrape=Scraper.new
-scrape.scrape_chewy
+
 
 

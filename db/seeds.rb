@@ -12,7 +12,7 @@ require 'open-uri'
 require 'pry'
 require_relative '../app/models/scraper.rb'
 
-scrape=Scraper.new
-scrape.scrape_chewy
+@scrape=Scraper.new
+@scrape.scrape_chewy
 
 
