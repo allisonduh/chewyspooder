@@ -4,10 +4,9 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    #@products = Product.all
     Scraper.new.scrape_chewy
-    productlist=Product.all
-    render json: productlist
+    @products = Product.all
+    # productlist=Product.all; render json: productlist # requires serializer file
   end
 
   # GET /products/1 or /products/1.json

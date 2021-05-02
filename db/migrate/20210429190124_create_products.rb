@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.string :ingredients
       t.string :caloriespercan
       t.text	:url
-
+      t.string 	:brand
       t.timestamps
     end
   end

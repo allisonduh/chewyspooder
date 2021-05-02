@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_190124) do
     t.text "ingredients"
     t.text "caloriespercan"
     t.text "url"
+    t.text "brand"
   end
 
 end
