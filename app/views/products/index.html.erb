@@ -1,20 +1,32 @@
 <p id="notice"><%= notice %></p>
 
+<h3> Search by ingredient: </h3>
+<%= form_with(model: @product, method: :get) do |form| %>
+  <%= form.label :query, "Search for:" %>
+  <%= form.text_field :search, params[:search] => 'init'%>
+  <%= form.submit "Search" %>
+  <% end %>
+  
 <h1>Products</h1>
 
-
+<% if @products %>
+<p> Number of products: <%= @products.count %>
+  <% end %>
+  
 <table>
   <thead>
     <tr>
-      <th colspan="4"></th>
+        <td>Brand</td>
+        <td>Ingredients</td>
+        <td>Calories Per can</td>
+      <!-- <th colspan="4"></th> -->
     </tr>
   </thead>
 
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.brand%></td>
-        <td><%= product.url%></td>
+        <td><%= link_to "#{product.brand}", product.url %></td>
         <td><%= product.ingredients%></td>
         <td><%= product.caloriespercan%></td>
 

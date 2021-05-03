@@ -1,4 +1,6 @@
-<%= form_with(model: product) do |form| %>
+
+
+<%= form_with(url:index) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -14,4 +16,12 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
+<style>
+.checkbox {
+   margin-top: 10px;
+}
+</style>
+
 <% end %>
