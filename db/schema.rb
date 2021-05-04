@@ -15,17 +15,12 @@ ActiveRecord::Schema.define(version: 2021_04_29_190124) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "arrays_products", id: false, force: :cascade do |t|
-    t.text "name"
-    t.text "brand"
-    t.text "url"
-  end
-
   create_table "products", id: false, force: :cascade do |t|
     t.text "ingredients"
     t.text "caloriespercan"
     t.text "url"
     t.text "brand"
+    t.text "product_name"
   end
 
 end

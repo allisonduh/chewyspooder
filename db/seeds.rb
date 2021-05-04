@@ -9,7 +9,7 @@
 
 require 'nokogiri'
 require 'open-uri'
-require 'pry'
+#require 'pry'
 require_relative '../app/models/scraper.rb'
 
 @scrape=Scraper.new

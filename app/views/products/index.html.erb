@@ -17,6 +17,7 @@
   <thead>
     <tr>
         <td>Brand</td>
+        <td>Product</td>
         <td>Ingredients</td>
         <td>Calories Per can</td>
       <!-- <th colspan="4"></th> -->
@@ -26,7 +27,8 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to "#{product.brand}", product.url %></td>
+        <td><%= product.brand %></td>
+        <td><%= link_to "#{product.product_name}", product.url %></td>
         <td><%= product.ingredients%></td>
         <td><%= product.caloriespercan%></td>
 
