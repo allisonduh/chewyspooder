@@ -2,15 +2,23 @@
 
 <h3> Search by ingredient: </h3>
 <%= form_with(model: @product, method: :get) do |form| %>
-  <%= form.label :query, "Search for:" %>
+  <%= form.label :query, "Contains:" %>
   <%= form.text_field :search, params[:search] => 'init'%>
+  <%= form.label :query, "Contains no:" %>
+  <%= form.text_field :searchno, params[:searchno] => 'init'%>
   <%= form.submit "Search" %>
   <% end %>
-  
+
+  <p> Searching for: <%= params[:search] %> 
+  <p> Searching for no: <%= params[:searchno] %> 
+
+<!--  <%= debug params %> -->
+
+
 <h1>Products</h1>
 
 <% if @products %>
-<p> Number of products: <%= @products.count %>
+<p> Number of products: <%= @product_search.count %>
   <% end %>
   
 <table>
@@ -25,21 +33,19 @@
   </thead>
 
   <tbody>
-    <% @products.each do |product| %>
+    <% @product_search.each do |oneproduct| %>
       <tr>
-        <td><%= product.brand %></td>
-        <td><%= link_to "#{product.product_name}", product.url %></td>
-        <td><%= product.ingredients%></td>
-        <td><%= product.caloriespercan%></td>
+        <td><%= oneproduct.brand %></td>
+        <td><%= link_to "#{oneproduct.product_name}", oneproduct.url %></td>
+        <td><%= oneproduct.ingredients%></td>
+        <td><%= oneproduct.caloriespercan%></td>
 
       </tr>
     <% end %>
   </tbody>
 </table>
 
-        <%# <td><%= link_to 'Show', product %></td> -->%>
-        <%# <td><%= link_to 'Edit', edit_product_path(product) %></td> -->%>
-        <%# <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %> 
+        
 
 <br>
 

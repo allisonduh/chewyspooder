@@ -5,9 +5,10 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     #Scraper.new.scrape_chewy
-    @products = Product.search(params[:search])
-    #@products=Product.all
+    @products=Product.all
+    @product_search = Product.search(params[:search], params[:searchno]).all
     # productlist=Product.all; render json: productlist # requires serializer file
+
   end
 
   # GET /products/1 or /products/1.json
@@ -69,6 +70,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:brand,:caloriespercan,:ingredients,:url,:search)
+      params.require(:product).permit(:brand,:caloriespercan,:ingredients,:url,:search,:searchno)
     end
 end
