@@ -3,13 +3,13 @@
 <h3> Search by ingredient: </h3>
 <%= form_with(model: @product, method: :get) do |form| %>
   <%= form.label :query, "Contains:" %>
-  <%= form.text_field :search, params[:search] => 'init'%>
+  <%= form.text_field :searchyes, params[:searchyes] => 'init'%>
   <%= form.label :query, "Contains no:" %>
   <%= form.text_field :searchno, params[:searchno] => 'init'%>
   <%= form.submit "Search" %>
   <% end %>
 
-  <p> Searching for: <%= params[:search] %> 
+  <p> Searching for: <%= params[:searchyes] %> 
   <p> Searching for no: <%= params[:searchno] %> 
 
 <!--  <%= debug params %> -->
