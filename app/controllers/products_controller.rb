@@ -5,9 +5,9 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     #Scraper.new.scrape_chewy
-    @products=Product.all
-    @product_search = Product.search(params[:searchyes],params[:searchno]).all
+    @product_search = Product.search_ingredients(params[:ingredientsyes],params[:ingredientsno]).all
 
+    # @products = @products.filter_by_ingredient(params[:ingredients]) if params[:ingredients].present?
     # @product_searchno = Product.searchno(params[:searchno]).all 
     # parameter within model needs to be present on controller.
     # productlist=Product.all; render json: productlist # requires serializer file
@@ -18,10 +18,20 @@ class ProductsController < ApplicationController
   def show
   end
 
+  
   # GET /products/new
   def new
     @product = Product.new
   end
+
+  def search
+    
+  end
+
+  def reset
+    @product_search=Product.all
+  end
+
 
   # GET /products/1/edit
   def edit
@@ -73,6 +83,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:brand,:caloriespercan,:ingredients,:url,:searchyes,:searchno)
+      params.require(:product).permit(:brand,:caloriespercan,:ingredients,:url,:ingredientsyes,:ingredientsno)
     end
 end
